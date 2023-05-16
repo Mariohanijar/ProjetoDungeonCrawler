@@ -20,6 +20,7 @@
 #define openDoor '='
 #define monster '$'
 
+int life = 3;
 int monsterMovement() {
   int monsterMove;
   srand(time(NULL));
@@ -50,9 +51,10 @@ int deathScreen() {
 }
 
 int levelTwo() {
-  int monsterMove, life = 3;
-  char a[30][30];
+
+  int monsterMove;
   bool levelIsFinished = false;
+  char a[30][30];
   int x, y, z = 0;
   int px = 27, py = 1, mx = 18, my = 23;
   char saveChar;
@@ -73,176 +75,177 @@ int levelTwo() {
       } else {
         a[x][y] = ' ';
       }
-
-      a[8][23] = closedDoor;
-      a[27][17] = closedDoor;
-      a[20][17] = openDoor; // porta 
-      a[6][23] = openDoor; 
-      a[27][9] = key;
-      a[5][9] = key;
-      a[2][16] = button;
-      a[px][py] = '&';
-      a[mx][my] = '$';
-
     }
   }
-
-  while (!levelIsFinished) {
-    system("cls");
-    printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-    for (x = 0; x < 30; x++) {
-      printf("\t");
-      for (y = 0; y < 30; y++) {
-        printf(" %c ", a[x][y]);
+  a[8][23] = closedDoor;
+  a[27][17] = closedDoor;
+  a[20][17] = openDoor;
+  a[6][23] = openDoor;
+  a[27][9] = key;
+  a[5][9] = key;
+  a[2][16] = button;
+  a[px][py] = '&';
+  a[mx][my] = '$';
+  while (i == 0) {
+    while (!levelIsFinished) {
+      system("cls");
+      printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+      for (x = 0; x < 30; x++) {
+        printf("\t");
+        for (y = 0; y < 30; y++) {
+          printf(" %c ", a[x][y]);
+        }
+        printf("\n");
       }
       printf("\n");
+      switch (getch()) {
+      case 'W':
+      case 'w':
+      case 72:
+
+        if (a[px - 1][py] == '#' || a[px - 1][py] == a[mx][my]) {
+          life = loss(life);
+          if (life <= 0) {
+            deathScreen();
+          }
+          a[px][py] = ' ';
+          px = 27;
+          py = 1;
+          a[px][py] = '&';
+          break;
+        } else if (a[px - 1][py] == '*' || a[px - 1][py] == a[mx][my]) {
+          break;
+        }
+
+        a[px][py] = saveChar;
+        px--;
+        saveChar = a[px][py];
+        break;
+
+      case 'A':
+      case 'a':
+      case 75:
+
+        if (a[px][py - 1] == '#' || a[px][py - 1] == a[mx][my]) {
+          life = loss(life);
+          if (life <= 0) {
+            deathScreen();
+          }
+          a[px][py] = ' ';
+          px = 27;
+          py = 1;
+          a[px][py] = '&';
+          break;
+        } else if (a[px][py - 1] == '*' || a[px][py - 1] == 'D') {
+          break;
+        }
+        a[px][py] = saveChar;
+        py--;
+        saveChar = a[px][py];
+        break;
+
+      case 'D':
+      case 'd':
+      case 77:
+        if (a[px][py + 1] == '#' || a[px][py + 1] == a[mx][my]) {
+          life = loss(life);
+          if (life <= 0) {
+            deathScreen();
+          }
+          a[px][py] = ' ';
+          px = 27;
+          py = 1;
+          a[px][py] = '&';
+          break;
+        }
+        if (a[px][py + 1] == '*' || a[px][py + 1] == 'D') {
+          break;
+        }
+        a[px][py] = saveChar;
+        py++;
+        saveChar = a[px][py];
+        break;
+
+      case 'S':
+      case 's':
+      case 80:
+        if (a[px + 1][py] == '#' || a[px + 1][py] == a[mx][my]) {
+          life = loss(life);
+          if (life <= 0) {
+            deathScreen();
+          }
+          a[px][py] = ' ';
+          px = 27;
+          py = 1;
+          a[px][py] = '&';
+          break;
+        }
+        if (a[px + 1][py] == '*' || a[px + 1][py] == 'D') {
+          break;
+        }
+        a[px][py] = saveChar;
+        px++;
+        saveChar = a[px][py];
+        break;
+
+      case 'I':
+      case 'i':
+      	if (saveChar == button)
+          {
+              if(a[px][py] == a[2][16]){
+                  a[3][16] = ' ';
+                  a[9][23] = ' ';
+              }
+        }
+        if (saveChar == key) {
+          if (a[px][py] == a[27][9]) {
+            a[27][17] = openDoor;
+          }
+          if (a[px][py] == a[5][9]) {
+            a[8][23] = openDoor;
+          }
+          saveChar = ' ';
+        }
+      }
+
+    
+      monsterMove = monsterMovement();
+      if (monsterMove == 1) {
+        if (a[mx - 1][my] == '*' || a[mx - 1][my] == 'D' || a[mx - 1][my] == '=' || a[mx - 1][my] == '#' || a[mx - 1][my] == '@') {
+          break;
+        }
+        a[mx][my] = ' ';
+        mx--;
+      }
+      if (monsterMove == 2) {
+        if (a[mx][my - 1] == '*' || a[mx][my - 1] == 'D' || a[mx][my - 1] == '=' || a[mx][my - 1] == '#' || a[mx][my - 1] == '@') {
+          break;
+        }
+        a[mx][my] = ' ';
+        my--;
+      }
+      if (monsterMove == 3) {
+        if (a[mx][my + 1] == '*' || a[mx][my + 1] == 'D' || a[mx][my + 1] == '=' || a[mx][my + 1] == '#' || a[mx][my + 1] == '@') {
+          break;
+        }
+        a[mx][my] = ' ';
+        my++;
+      }
+      if (monsterMove == 4) {
+        if (a[mx + 1][my] == '*' || a[mx + 1][my] == 'D' || a[mx + 1][my] == '=' || a[mx + 1][my] == '#' || a[mx + 1][my] == '@') {
+          break;
+        }
+        a[mx][my] = ' ';
+        mx++;
+      }
+      //if (a[px][py] == a[6][23]) {
+     // levelIsFinished = true;
+   //   i++;
+ // }
+      a[mx][my] = '$';
+      a[px][py] = '&';
+      system("cls");
     }
-    printf("\n");
-    switch (getch()) {
-    case 'W':
-    case 'w':
-    case 72:
-
-      if (a[px - 1][py] == '#' || a[px - 1][py] == '$') {
-        life = loss(life);
-        if (life <= 0) {
-          deathScreen();
-        }
-        a[px][py] = ' ';
-        px = 27;
-        py = 1;
-        a[px][py] = '&';
-        break;
-      } else if (a[px - 1][py] == '*' || a[px - 1][py] == 'D') {
-        break;
-      }
-
-      a[px][py] = saveChar;
-      px--;
-      saveChar = a[px][py];
-      break;
-
-    case 'A':
-    case 'a':
-    case 75:
-
-      if (a[px][py - 1] == '#' || a[px][py - 1] == '$') {
-        life = loss(life);
-        if (life <= 0) {
-          deathScreen();
-        }
-        a[px][py] = ' ';
-        px = 27;
-        py = 1;
-        a[px][py] = '&';
-        break;
-      } else if (a[px][py - 1] == '*' || a[px][py - 1] == 'D') {
-        break;
-      }
-      a[px][py] = saveChar;
-      py--;
-      saveChar = a[px][py];
-      break;
-
-    case 'D':
-    case 'd':
-    case 77:
-      if (a[px][py + 1] == '#' || a[px][py + 1] == '$') {
-        life = loss(life);
-        if (life <= 0) {
-          deathScreen();
-        }
-        a[px][py] = ' ';
-        px = 27;
-        py = 1;
-        a[px][py] = '&';
-        break;
-      }
-      else if (a[px][py + 1] == '*' || a[px][py + 1] == 'D') {
-
-      }
-      a[px][py] = saveChar;
-      py++;
-      saveChar = a[px][py];
-      break;
-
-    case 'S':
-    case 's':
-    case 80:
-      if (a[px + 1][py] == '#' || a[px + 1][py] == '$') {
-        life = loss(life);
-        if (life <= 0) {
-          deathScreen();
-        }
-        a[px][py] = ' ';
-        px = 27;
-        py = 1;
-        a[px][py] = '&';
-        break;
-      }
-      else if (a[px + 1][py] == '*' || a[px + 1][py] == 'D') {
-        break;
-      }
-      a[px][py] = saveChar;
-      px++;
-      saveChar = a[px][py];
-      break;
-
-    case 'I':
-    case 'i':
-      if (saveChar == button) {
-        if (a[px][py] == a[2][16]) {
-          a[3][16] = ' ';
-          a[9][23] = ' ';
-        }
-      } else if (saveChar == key) {
-        if (a[px][py] == a[27][9]) {
-          a[27][17] = openDoor;
-        }
-        if (a[px][py] == a[5][9]) {
-          a[8][23] = openDoor;
-        }
-        saveChar = ' ';
-      }
-
-    }
-    //a[px][py] = '&';
-    //if (a[px][py] == a[6][23]) {
-      //levelIsFinished = true;
-   	//}
-
-    monsterMove = monsterMovement();
-    if (monsterMove == 1) {
-      if (a[mx - 1][my] == '*' || a[mx - 1][my] == 'D' || a[mx - 1][my] == '=' || a[mx - 1][my] == '#' || a[mx - 1][my] == '@') {
-        break;
-      }
-      a[mx][my] = ' ';
-      mx--;
-    }
-    if (monsterMove == 2) {
-      if (a[mx][my - 1] == '*' || a[mx][my - 1] == 'D' || a[mx][my - 1] == '=' || a[mx][my - 1] == '#' || a[mx][my - 1] == '@') {
-        break;
-      }
-      a[mx][my] = ' ';
-      my--;
-    }
-    if (monsterMove == 3) {
-      if (a[mx][my + 1] == '*' || a[mx][my + 1] == 'D' || a[mx][my + 1] == '=' || a[mx][my + 1] == '#' || a[mx][my + 1] == '@') {
-        break;
-      }
-      a[mx][my] = ' ';
-      my++;
-    }
-    if (monsterMove == 4) {
-      if (a[mx + 1][my] == '*' || a[mx + 1][my] == 'D' || a[mx + 1][my] == '=' || a[mx + 1][my] == '#' || a[mx + 1][my] == '@') {
-        break;
-      }
-      a[mx][my] = ' ';
-      mx++;
-    }
-    a[mx][my] = '$';
-    a[px][py] = '&';
-    system("cls");
   }
 
 }
@@ -386,7 +389,12 @@ int main() {
 
     switch (choice) {
     case 1:
+      life = 3;
       levelTwo();
+      if (life == 0) {
+        return main();
+      }
+
       break;
     case 2:
       tutorial();
