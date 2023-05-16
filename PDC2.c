@@ -5,10 +5,63 @@
 #include <windows.h>
 #include <locale.h>
 
+enum{
+	BLACK,
+	BLUE,
+	GREEN,
+	CYAN,
+	RED,
+	MAGENTA,
+	BROWN,
+	LIGHTGRAY,
+	DARKGRAY,
+	LIGHTBLUE,
+	LIGHTGREEN,
+	LIGHTCYAN,
+	LIGHTRED,
+	LIGHTMAGENTA,
+	YELLOW,
+	WHITE,
+};
+
+
+//Cores de fundo
+enum{
+	_BLACK=0,
+	_BLUE=16,
+	_GREEN=32,
+	_CYAN=48,
+	_RED=64,
+	_MAGENTA=80,
+	_BROWN=96,
+	_LIGHTGRAY=112,
+	_DARKGRAY=128,
+	_LIGHTBLUE=144,
+	_LIGHTGREEN=160,
+	_LIGHTCYAN=176,
+	_LIGHTRED=192,
+	_LIGHTMAGENTA=208,
+	_YELLOW=224,
+	_WHITE=240,
+};
+
+void Cores (int letras, int fundo){
+	//Juntar as cores
+	SetConsoleTextAttribute (GetStdHandle (STD_OUTPUT_HANDLE), letras + fundo);
+}
+
+void slow_print(char* str, int delay) {
+    int i;
+	for (i = 0; str[i] != '\0'; i++) {
+    putchar(str[i]);
+    fflush(stdout);
+    usleep(delay * 600);
+	}
+}
 void levelOne() {
     char a[15][15];
     int x, y;
-    char key = '@';
+    char key= '@';
     char closedDoor = 'D';
     char button = 'O';
     char openDoor = '=';
@@ -100,6 +153,7 @@ void levelOne() {
 			}
     		
 	}
+	
 	a[px][py] = '&';
 	
     system("cls");
@@ -132,6 +186,7 @@ int main (){
 	int choice;
 while(choice != 3){
 	setlocale(LC_ALL, "Portuguese");
+	Cores(RED, _LIGHTGREEN);
 	printf("Bem vindo ao Dungeon Crawler!");
 	printf("\nEscolha uma das opções abaixo:");
 	printf("\n1 : Iniciar o jogo\n2 : Tutorial\n3 : Sair\n");
