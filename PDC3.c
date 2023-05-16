@@ -238,10 +238,10 @@ int levelTwo() {
         a[mx][my] = ' ';
         mx++;
       }
-      //if (a[px][py] == a[6][23]) {
-     // levelIsFinished = true;
-   //   i++;
- // }
+      if (px == 6 && py == 23) {
+      levelIsFinished = true;
+      i++;
+  }
       a[mx][my] = '$';
       a[px][py] = '&';
       system("cls");
@@ -389,11 +389,9 @@ int main() {
 
     switch (choice) {
     case 1:
-      life = 3;
+      levelOne();
       levelTwo();
-      if (life == 0) {
-        return main();
-      }
+      
 
       break;
     case 2:
