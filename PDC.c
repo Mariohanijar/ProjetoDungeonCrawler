@@ -6,13 +6,11 @@
 #include <windows.h>
 #include <locale.h>
 #include <time.h>
-
 #define closedDoor 'D'
 #define key '@'
 #define button 'O'
 #define openDoor '='
 #define monster '$'
-
 int life = 3;
 int monsterMovement() {
   int monsterMove;
@@ -23,6 +21,14 @@ int monsterMovement() {
   return monsterMove;
 }
 
+void slow_print(char* str, int delay) {
+    int i;
+for (i = 0; str[i] != '\0'; i++) {
+    putchar(str[i]);
+    fflush(stdout);
+    usleep(delay * 600);
+}
+}
 int loss(life) {
   system("cls");
   life--;
@@ -375,7 +381,7 @@ int main() {
 
   while (choice != 3) {
     setlocale(LC_ALL, "Portuguese");
-    printf("Bem vindo ao Dungeon Crawler!");
+    slow_print("Bem vindo ao Dungeon Crawler!", 50);
     printf("\nEscolha uma das op��es abaixo:");
     printf("\n1 : Iniciar o jogo\n2 : Tutorial\n3 : Sair\n");
     scanf("%d", & choice);
