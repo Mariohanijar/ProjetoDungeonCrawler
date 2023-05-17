@@ -1,17 +1,10 @@
 #include <stdio.h>
-
 #include <stdbool.h>
-
 #include <string.h>
-
 #include <stdlib.h>
-
 #include <conio.h>
-
 #include <windows.h>
-
 #include <locale.h>
-
 #include <time.h>
 
 #define closedDoor 'D'
@@ -26,6 +19,7 @@ int monsterMovement() {
   srand(time(NULL));
   monsterMove = rand() % 4 + 1;
 
+//vitor hugo eu nao aguento mais fazer essa porra desse artigo pfv acaba 
   return monsterMove;
 }
 
@@ -359,18 +353,18 @@ void levelOne() {
 
 void tutorial() {
   system("cls");
-  printf("O jogo é do estilo aventura/puzzle onde o objetivo é o jogador conseguir passar de três fases.\nEm cada fase o jogador deve se movimentar para pegar uma chave para abrir a porta fechada.\nO jogador possui os seguintes comando:\n");
-  printf("\nW: O jogador movimenta uma unidade para cima\nA: O jogador movimenta uma unidade para esquerda\nS: O jogador movimenta uma unidade para baixo\nD: O jogador movimenta uma unidade para direita\nI: O jogador interage com o objeto que está em cima.\n\n");
+  printf("O jogo ï¿½ do estilo aventura/puzzle onde o objetivo ï¿½ o jogador conseguir passar de trï¿½s fases.\nEm cada fase o jogador deve se movimentar para pegar uma chave para abrir a porta fechada.\nO jogador possui os seguintes comando:\n");
+  printf("\nW: O jogador movimenta uma unidade para cima\nA: O jogador movimenta uma unidade para esquerda\nS: O jogador movimenta uma unidade para baixo\nD: O jogador movimenta uma unidade para direita\nI: O jogador interage com o objeto que estï¿½ em cima.\n\n");
   system("pause");
   system("cls");
   printf("O jogo possui os seguintes elementos nas fases:\n\n");
-  printf("&: Símbolo que representa o jogador.\n*: Símbolo que representa uma parede, o jogador ao se movimentar não pode passar pela parede.\n@: Símbolo que representa a chave para abrir a porta para finalizar a fase, a porta abre no momento que o jogador interage com a chave.\nD: Símbolo que representa a porta fechada.\n");
-  printf("=: Símbolo que representa a porta aberta quando o jogador interage com a chave.\n");
-  printf("O: Símbolo que representa um botão que o usuário pode interagir, o botão fica no chão e o jogador deve ficar em cima dele para poder interagir.\n");
-  printf("#: Símbolo que representa um espinho. A fase é reiniciada quando o jogador toca no espinho, caso a fase seja reiniciada três vezes, o jogo volta para o menu principal.\n");
-  printf(">: Símbolo que representa um teletransporte. O teletransporte sempre deve vir em pares, quando o jogador toca em um ele é transportado para o outro e vice-versa.\n");
-  printf("Z: Símbolo que representa o monstro nível 1. O mostro tem um movimento aleatório, logo, ele movimenta um bloco para cima ou para direita ou para esquerda ou para baixo. O mostro sempre faz uma movimentação depois do usuário se movimentar ou interagir com um objeto.\n");
-  printf("K: Símbolo que representa o monstro nível 2. O mostro nível dois tem uma inteligência de se movimentar na direção do jogador. O monstro não precisa saber desviar de obstáculos, ele sempre vai andar em linha reta em direção do jogador.\n");
+  printf("&: Sï¿½mbolo que representa o jogador.\n*: Sï¿½mbolo que representa uma parede, o jogador ao se movimentar nï¿½o pode passar pela parede.\n@: Sï¿½mbolo que representa a chave para abrir a porta para finalizar a fase, a porta abre no momento que o jogador interage com a chave.\nD: Sï¿½mbolo que representa a porta fechada.\n");
+  printf("=: Sï¿½mbolo que representa a porta aberta quando o jogador interage com a chave.\n");
+  printf("O: Sï¿½mbolo que representa um botï¿½o que o usuï¿½rio pode interagir, o botï¿½o fica no chï¿½o e o jogador deve ficar em cima dele para poder interagir.\n");
+  printf("#: Sï¿½mbolo que representa um espinho. A fase ï¿½ reiniciada quando o jogador toca no espinho, caso a fase seja reiniciada trï¿½s vezes, o jogo volta para o menu principal.\n");
+  printf(">: Sï¿½mbolo que representa um teletransporte. O teletransporte sempre deve vir em pares, quando o jogador toca em um ele ï¿½ transportado para o outro e vice-versa.\n");
+  printf("Z: Sï¿½mbolo que representa o monstro nï¿½vel 1. O mostro tem um movimento aleatï¿½rio, logo, ele movimenta um bloco para cima ou para direita ou para esquerda ou para baixo. O mostro sempre faz uma movimentaï¿½ï¿½o depois do usuï¿½rio se movimentar ou interagir com um objeto.\n");
+  printf("K: Sï¿½mbolo que representa o monstro nï¿½vel 2. O mostro nï¿½vel dois tem uma inteligï¿½ncia de se movimentar na direï¿½ï¿½o do jogador. O monstro nï¿½o precisa saber desviar de obstï¿½culos, ele sempre vai andar em linha reta em direï¿½ï¿½o do jogador.\n");
   system("pause");
   system("cls");
 
@@ -382,7 +376,7 @@ int main() {
   while (choice != 3) {
     setlocale(LC_ALL, "Portuguese");
     printf("Bem vindo ao Dungeon Crawler!");
-    printf("\nEscolha uma das opções abaixo:");
+    printf("\nEscolha uma das opï¿½ï¿½es abaixo:");
     printf("\n1 : Iniciar o jogo\n2 : Tutorial\n3 : Sair\n");
     scanf("%d", & choice);
     system("cls");
@@ -402,7 +396,7 @@ int main() {
       break;
     }
     if (choice > 3) {
-      printf("Por favor digite uma opcao válida\n\n");
+      printf("Por favor digite uma opcao vï¿½lida\n\n");
       system("pause");
     }
     system("cls");
