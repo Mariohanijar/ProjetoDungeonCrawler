@@ -15,25 +15,37 @@
 #define monster '$'
 #define monster2 'K'
 
-int sound();
+
+void soundDefault();
+void soundSelect();
+void sound();
 int life = 3;
 
-int sound()
+void soundDefault()
 {
-    Beep(659, 250);   // E5
-    Beep(659, 250);   // E5
-    Beep(659, 250);   // E5
-    Beep(659, 500);   // E5
+	Beep(1000, 1000);
+}
 
-    Beep(523, 250);   // C5
+void soundSelect() {
+    Beep(800, 200); 
+}
 
-    Beep(587, 250);   // D5
+void sound()
+{
+    Beep(659, 250);   
+    Beep(659, 250);   
+    Beep(659, 250);   
+    Beep(659, 500);   
 
-    Beep(659, 250);   // E5
+    Beep(523, 250);   
 
-    Beep(587, 250);   // D5
+    Beep(587, 250);   
 
-    Beep(659, 250);   // E5
+    Beep(659, 260);   
+
+    Beep(587, 260);   
+
+    Beep(659, 600);   
 }
 
 
@@ -126,10 +138,10 @@ bool printFase(int faseNumber)
         while (!levelIsFinished)
         {
 
-            printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+            printf("\n\n\n\n\n\n\n\n\n\n\n");
             for (x = 0; x < 15; x++)
             {
-                printf("\t\t\t\t\t\t\t\t\t\t\t\t");
+                printf("\t\t\t\t\t\t\t");
                 for (y = 0; y < 15; y++)
                 {
                     printf(" %c ", a[x][y]);
@@ -270,7 +282,8 @@ bool printFase(int faseNumber)
         {
 
             system("cls");
-            printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+            printf("\n\n\n\n\n\n\n\n\n\n\n\n");
+       
             for (x = 0; x < 30; x++)
             {
                 printf("\t");
@@ -513,9 +526,9 @@ bool printFase(int faseNumber)
                 {'*', ' ', ' ', ' ', ' ', ' ', ' ', '*', ' ', '#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', ' ', '#', ' ', '#', '#', '#', '#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '*'},
                 {'*', '*', '*', '*', '*', '*', '*', '*', ' ', '#', '#', '#', '#', '#', '#', '#', '#', '#', ' ', '*', '#', '#', '#', ' ', '#', ' ', '#', ' ', ' ', '#', ' ', ' ', '#', ' ', ' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '*'},
                 {'*', '*', '*', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', ' ', '*', ' ', '#', '#', ' ', '#', ' ', '#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#', ' ', ' ', ' ', 'D', ' ', ' ', ' ', ' ', ' ', ' ', '*', ' ', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*'},
-                {'*', '*', '*', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', ' ', '#', ' ', '#', ' ', '#', '#', '#', '#', '#', ' ', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '*', ' ', ' ', ' ', ' ', ' ', ' ', '#', ' ', ' ', ' ', ' ', ' ', ' ', '*'},
+                {'*', '*', '*', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', ' ', '#', ' ', '#', ' ', '#', '#', '#', '#', '#', ' ', '#', '#', '=', '#', '#', '#', '#', '#', '#', '#', '#', '*', ' ', ' ', ' ', ' ', ' ', ' ', '#', ' ', ' ', ' ', ' ', ' ', ' ', '*'},
                 {'*', '#', '*', '*', '*', '*', '*', '*', ' ', '*', '*', '*', '*', '*', '*', '*', '#', '#', ' ', '*', '#', '#', '#', ' ', '#', ' ', '#', ' ', ' ', '#', ' ', '#', '#', ' ', '#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', ' ', '@', ' ', ' ', ' ', ' ', ' ', '#', ' ', ' ', '*'},
-                {'*', ' ', ' ', ' ', ' ', ' ', ' ', '*', ' ', '*', ' ', ' ', ' ', '#', ' ', '*', ' ', ' ', ' ', '*', ' ', ' ', '#', ' ', '#', ' ', '#', '#', ' ', '#', ' ', '#', ' ', ' ', '#', '#', ' ', '#', '#', '#', '#', '#', '#', '#', '#', '*', ' ', '#', ' ', ' ', ' ', ' ', '#', ' ', ' ', ' ', ' ', ' ', ' ', '*'},
+                {'*', ' ', ' ', ' ', ' ', ' ', ' ', '*', ' ', '*', ' ', ' ', ' ', '#', ' ', '*', ' ', ' ', ' ', '*', ' ', ' ', '#', ' ', '#', ' ', '#', '#', ' ', '#', ' ', '#', ' ', ' ', '#', '#', '$', '#', '#', '#', '#', '#', '#', '#', '#', '*', ' ', '#', ' ', ' ', ' ', ' ', '#', ' ', ' ', ' ', ' ', ' ', ' ', '*'},
                 {'*', ' ', '@', ' ', '#', '*', ' ', '*', ' ', ' ', ' ', '#', ' ', ' ', ' ', '*', ' ', ' ', ' ', '*', ' ', ' ', '#', ' ', '#', ' ', '#', ' ', ' ', '#', ' ', '#', ' ', '#', '#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '*', ' ', ' ', '#', ' ', ' ', ' ', ' ', '#', ' ', ' ', ' ', ' ', ' ', '*'},
                 {'*', '#', ' ', ' ', ' ', '*', ' ', '*', ' ', '*', '#', ' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', '*', ' ', ' ', '#', ' ', '#', ' ', '#', ' ', '#', '#', ' ', '#', ' ', ' ', '#', ' ', '#', '#', '#', '#', '#', '#', '#', '#', '#', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', 'D', '*', '*'},
                 {'*', ' ', ' ', ' ', ' ', '*', ' ', '*', ' ', '*', ' ', ' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', '*', ' ', ' ', '#', ' ', '#', ' ', '#', ' ', ' ', '#', ' ', '#', '#', ' ', '#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '*'},
@@ -533,14 +546,14 @@ bool printFase(int faseNumber)
                 {'*', '*', ' ', '#', ' ', '#', ' ', '*', ' ', ' ', 'O', ' ', '*', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#', ' ', '#', ' ', ' ', ' ', ' ', ' ', '#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '*', ' ', '#', ' ', '#', ' ', '#', ' ', '#', ' ', ' ', '#', ' ', ' ', '*'},
                 {'*', '*', ' ', ' ', ' ', '#', ' ', '*', ' ', ' ', ' ', ' ', '*', '#', '#', '#', '#', '#', ' ', '#', ' ', '#', ' ', '#', ' ', ' ', ' ', ' ', '#', '#', '#', '#', '#', ' ', '#', '#', ' ', '#', '#', '#', '#', '#', '#', '#', '#', '*', ' ', '#', ' ', '#', ' ', '#', ' ', '#', '#', 'D', '#', '#', '#', '*'},
                 {'*', '*', ' ', ' ', ' ', '@', ' ', '*', ' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', ' ', ' ', ' ', '#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#', ' ', ' ', ' ', ' ', ' ', '#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '*', ' ', '#', ' ', '#', ' ', '#', ' ', '#', ' ', ' ', ' ', ' ', ' ', '*'},
-                {'*', '*', '#', ' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', ' ', '*', '#', '#', '#', '#', '#', ' ', '#', '#', ' ', ' ', ' ', '#', ' ', '#', ' ', '#', ' ', '#', '#', '#', '#', '#', ' ', '#', '#', '#', '#', '#', '#', '#', '#', '#', '*', ' ', '#', ' ', '#', ' ', '#', ' ', '#', ' ', ' ', ' ', ' ', ' ', '*'},
+                {'*', '*', '#', ' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', ' ', '*', '#', '#', '#', '#', '#', ' ', '#', '#', ' ', ' ', ' ', '#', ' ', '#', ' ', '#', ' ', '#', '#', '#', '#', '#', '=', '#', '#', '#', '#', '#', '#', '#', '#', '#', '*', ' ', '#', ' ', '#', ' ', '#', ' ', '#', ' ', ' ', ' ', ' ', ' ', '*'},
                 {'*', '*', '*', '*', '*', '*', '*', '*', '*', ' ', ' ', ' ', '*', ' ', ' ', ' ', ' ', ' ', ' ', '#', '@', ' ', '#', ' ', ' ', ' ', ' ', ' ', '#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', '#', ' ', ' ', ' ', '#', ' ', ' ', ' ', '|', ' ', '*'},
                 {'*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*'},
         };
-        px = 1, py = 1;
+        px = 1, py =1;
         int fasePart = 1;
         int mx = 12, my = 13, x, y;
-        int mx2 = 31, my2 = 1, mx3 = 31, my3 = 46;
+        int mx2 = 31, my2 = 1, mx3 = 31, my3 = 46, mx4 = 39, my4 = 36;
         a[px][py] = '&';
         a[mx2][my2] = 'K';
 
@@ -558,6 +571,8 @@ bool printFase(int faseNumber)
                         printf(" %c ", a[y][x]);
                     }
                     printf("\n\n");
+				
+                
                 }
             }
             if (fasePart == 2)
@@ -704,7 +719,7 @@ bool printFase(int faseNumber)
                             py = 48;
                             a[32][42] = portal;
                         }
-                        //ButÃµes
+                        //ButÃƒÂµes
                     } else if (saveChar == button) {
                         if (a[px][py] == a[19][11]) {
                             a[14][6] = ' ';
@@ -754,7 +769,8 @@ bool printFase(int faseNumber)
                 px == mx2 && py + 1 == my2 || px + 1 == mx2 && py == my2|| px == mx2 && py  == my2 ||
                 px == mx2 && py  == my2 || px - 1 == mx3 && py == my3 || px == mx3 && py - 1 == my3 ||
                 px == mx3 && py + 1 == my3 || px + 1 == mx3 && py == my3 || px == mx2 && py  == my3 ||
-                px == mx3 && py  == my3)
+                px == mx3 && py  == my3 || px - 1 == mx4 && py == my4 || px == mx4 && py - 1 == my4 || px == mx4 && py + 1 == my4 ||
+                px + 1 == mx4 && py == my4 )
             {
                 life = loss(life);
                 if (life <= 0)
@@ -896,7 +912,46 @@ bool printFase(int faseNumber)
                 levelIsFinished = true;
                 return true;
             }
+            
+            monsterMove = monsterMovement();
+            if (monsterMove == 1)
+            {
+                if (a[mx4 - 1][my4] == ' ')
+                {
+                    a[mx4][my4] = ' ';
+                    mx4--;
+                }
+            }
+            if (monsterMove == 2)
+            {
+                if (a[mx4][my4 - 1] == ' ')
+                {
+                    a[mx4][my4] = ' ';
+                    my4--;
+                }
+            }
+            if (monsterMove == 3)
+            {
+                if (a[mx4][my4 + 1] == ' ')
+                {
+                    a[mx4][my4] = ' ';
+                    my4++;
+                }
+            }
+            if (monsterMove == 4)
+            {
+                if (a[mx4 + 1][my4] == ' ')
+                {
+                    a[mx4][my4] = ' ';
+                    mx4++;
+                }
+            }
 
+            if (a[px][py] == a[58][57]) {
+                levelIsFinished = true;
+                return true;
+            }
+			a[mx4][my4] = '$';
             a[mx][my] = '$';
             a[px][py] = '&';
             a[mx2][my2] = 'K';
@@ -908,18 +963,20 @@ bool printFase(int faseNumber)
 void tutorial()
 {
     system("cls");
-    printf("O jogo ? do estilo aventura/puzzle onde o objetivo ? o jogador conseguir passar de tr?s fases.\nEm cada fase o jogador deve se movimentar para pegar uma chave para abrir a porta fechada.\nO jogador possui os seguintes comando:\n");
-    printf("\nW: O jogador movimenta uma unidade para cima\nA: O jogador movimenta uma unidade para esquerda\nS: O jogador movimenta uma unidade para baixo\nD: O jogador movimenta uma unidade para direita\nI: O jogador interage com o objeto que est? em cima.\n\n");
-    system("pause");
+    printf("O jogo eh do estilo aventura/puzzle onde o objetivo eh o jogador conseguir passar de tres fases.\nEm cada fase o jogador deve se movimentar para pegar uma chave para abrir a porta fechada.\n\nO jogador possui os seguintes comandos:\n");
+    printf("\nW: O jogador movimenta uma unidade para cima\nA: O jogador movimenta uma unidade para esquerda\nS: O jogador movimenta uma unidade para baixo\nD: O jogador movimenta uma unidade para direita\nI: O jogador interage com o objeto que esta em cima.\n\n");
+     printf("----------------------------------------------------------------------\n");
+	system("pause");
     system("cls");
     printf("O jogo possui os seguintes elementos nas fases:\n\n");
-    printf("&: S?mbolo que representa o jogador.\n*: S?mbolo que representa uma parede, o jogador ao se movimentar n?o pode passar pela parede.\n@: S?mbolo que representa a chave para abrir a porta para finalizar a fase, a porta abre no momento que o jogador interage com a chave.\nD: S?mbolo que representa a porta fechada.\n");
-    printf("=: S?mbolo que representa a porta aberta quando o jogador interage com a chave.\n");
-    printf("O: S?mbolo que representa um bot?o que o usurio pode interagir, o bot?o fica no ch?o e o jogador deve ficar em cima dele para poder interagir.\n");
-    printf("#: S?mbolo que representa um espinho. A fase ? reiniciada quando o jogador toca no espinho, caso a fase seja reiniciada tr?s vezes, o jogo volta para o menu principal.\n");
-    printf(">: S?mbolo que representa um teletransporte. O teletransporte sempre deve vir em pares, quando o jogador toca em um ele ? transportado para o outro e vice-versa.\n");
-    printf("Z: S?mbolo que representa o monstro n?vel 1. O mostro tem um movimento aleat?rio, logo, ele movimenta um bloco para cima ou para direita ou para esquerda ou para baixo. O mostro sempre faz uma movimenta??o depois do usu?rio se movimentar ou interagir com um objeto.\n");
-    printf("K: S?mbolo que representa o monstro n?vel 2. O mostro n?vel dois tem uma intelig?ncia de se movimentar na dire??o do jogador. O monstro n?o precisa saber desviar de obst?culos, ele sempre vai andar em linha reta em dire??o do jogador.\n");
+    printf("&: Simbolo que representa o jogador.\n*: Simbolo que representa uma parede, o jogador ao se movimentar nao pode passar pela parede.\n@: Simbolo que representa a chave para abrir a porta para finalizar a fase, a porta abre no momento que o jogador interage com a chave.\nD: Simbolo que representa a porta fechada.\n");
+    printf("=: Simbolo que representa a porta aberta quando o jogador interage com a chave.\n");
+    printf("O: Simbolo que representa um botao que o usuario pode interagir, o botao fica no chao e o jogador deve ficar em cima dele para poder interagir.\n");
+    printf("#: Simbolo que representa um espinho. A fase eh reiniciada quando o jogador toca no espinho, caso a fase seja reiniciada tres vezes, o jogo volta para o menu principal.\n");
+    printf(">: Simbolo que representa um teletransporte. O teletransporte sempre deve vir em pares, quando o jogador toca em um ele eh transportado para o outro e vice-versa.\n");
+    printf("$: Simbolo que representa o monstro nivel 1. O mostro tem um movimento aleatorio, logo, ele movimenta um bloco para cima ou para direita ou para esquerda ou para baixo. O mostro sempre faz uma movimentacao depois do usuario se movimentar ou interagir com um objeto.\n");
+    printf("K: Simbolo que representa o monstro nivel 2. O mostro nivel dois tem uma inteligencia de se movimentar na direcao do jogador. O monstro nao precisa saber desviar de obstaculos, ele sempre vai andar em linha reta em direcao do jogador.\n\n");
+    printf("----------------------------------------------------------------------\n");
     system("pause");
     system("cls");
 }
@@ -928,24 +985,28 @@ int main()
 {
     int choice, restartGame;
     bool playerPassed;
-    sound();
-    do
+    
+    while (choice != 3)
     {
         setlocale(LC_ALL, "Portuguese");
-        system("cls");
-        slow_print("Bem vindo ao Dungeon Crawler!\n", 50);
-        printf("\nEscolha uma das opcoes abaixo:\n");
-        printf("\n[1] --> Iniciar o jogo\n[2] --> Tutorial\n[3] --> Sair\n");
-        printf("\nEscolha: ");
+        system("cls");          
+        slow_print("\n\n\n\t\t\t\t\t\tBem vindo ao DUNGEON CRAWLER!\n\n", 25);
+        printf("\t\t\t\t\t\t------------------------------");
+        printf("\n\t\t\t\t\t\tEscolha uma das opcoes abaixo:\n");
+        printf("\n\t\t\t\t\t\t[1] << Iniciar o jogo >>\n\t\t\t\t\t\t[2] << Tutorial >>\n\t\t\t\t\t\t[3] << Sair >>\n");
+        printf("\t\t\t\t\t\t------------------------------");
+        printf("\n\t\t\t\t\t\t--> ");
+    	sound();
         scanf("%d", &choice);
         system("cls");
 
         switch (choice)
         {
             case 1:
+            	soundSelect();
                 playerPassed = printFase(1);
                 if (!playerPassed)
-                { // se a variavel playerPassed for falsa, significa q o player morreu na fase
+                {                    // se a variavel playerPassed for falsa, significa q o player morreu na fase
                     break;
                 }
                 playerPassed = printFase(2);
@@ -959,27 +1020,29 @@ int main()
                     break;
                 }
                 system("cls");
-                printf("Parabéns você completou o jogo!\n se quiser voltar para o menu digite 1, se não quiser digite outro numero!:");
+                printf("Parabens voce completou o jogo!\n se quiser voltar para o menu digite 1, se nao quiser digite outro numero!:");
                 scanf("%d", &restartGame);
                 break;
             case 2:
+            	soundSelect();
                 tutorial();
                 break;
             case 3:
+            	soundSelect();
                 printf("Saindo...");
                 break;
 
             default:
-                printf("Opção invalida! Por favor, tente novamente.\n");
+            	soundDefault();
+                printf("Opcao invalida! Por favor, tente novamente.\n\n");
                 system("pause");
+		    }
+
                 system("cls");
-                break;
-        }
-        if(restartGame != 1){
-            break;
-        }
-
-    }while (choice != 3);
-
-    return 0;
-}
+                if(restartGame != 1){
+                	break;
+				}
+	    }
+	    
+	    return 0;
+    }
