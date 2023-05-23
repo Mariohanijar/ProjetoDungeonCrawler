@@ -15,37 +15,25 @@
 #define monster '$'
 #define monster2 'K'
 
-
-void soundDefault();
-void soundSelect();
-void sound();
+int sound();
 int life = 3;
 
-void soundDefault()
+int sound()
 {
-	Beep(1000, 1000);
-}
+    Beep(659, 250);   // E5
+    Beep(659, 250);   // E5
+    Beep(659, 250);   // E5
+    Beep(659, 500);   // E5
 
-void soundSelect() {
-    Beep(800, 200); 
-}
+    Beep(523, 250);   // C5
 
-void sound()
-{
-    Beep(659, 250);   
-    Beep(659, 250);   
-    Beep(659, 250);   
-    Beep(659, 500);   
+    Beep(587, 250);   // D5
 
-    Beep(523, 250);   
+    Beep(659, 250);   // E5
 
-    Beep(587, 250);   
+    Beep(587, 250);   // D5
 
-    Beep(659, 260);   
-
-    Beep(587, 260);   
-
-    Beep(659, 600);   
+    Beep(659, 250);   // E5
 }
 
 
@@ -138,10 +126,10 @@ bool printFase(int faseNumber)
         while (!levelIsFinished)
         {
 
-            printf("\n\n\n\n\n\n\n\n\n\n\n");
+            printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
             for (x = 0; x < 15; x++)
             {
-                printf("\t\t\t\t\t\t\t");
+                printf("\t\t\t\t\t\t\t\t\t\t\t\t");
                 for (y = 0; y < 15; y++)
                 {
                     printf(" %c ", a[x][y]);
@@ -282,11 +270,10 @@ bool printFase(int faseNumber)
         {
 
             system("cls");
-            printf("\n\n\n\n\n\n\n\n\n\n\n\n");
-       
+            printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
             for (x = 0; x < 30; x++)
             {
-                printf("\t");
+                printf("\t\t\t\t\t\t\t\t\t");
                 for (y = 0; y < 30; y++)
                 {
                     printf(" %c ", a[x][y]);
@@ -526,9 +513,9 @@ bool printFase(int faseNumber)
                 {'*', ' ', ' ', ' ', ' ', ' ', ' ', '*', ' ', '#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', ' ', '#', ' ', '#', '#', '#', '#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '*'},
                 {'*', '*', '*', '*', '*', '*', '*', '*', ' ', '#', '#', '#', '#', '#', '#', '#', '#', '#', ' ', '*', '#', '#', '#', ' ', '#', ' ', '#', ' ', ' ', '#', ' ', ' ', '#', ' ', ' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '*'},
                 {'*', '*', '*', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', ' ', '*', ' ', '#', '#', ' ', '#', ' ', '#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#', ' ', ' ', ' ', 'D', ' ', ' ', ' ', ' ', ' ', ' ', '*', ' ', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*'},
-                {'*', '*', '*', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', ' ', '#', ' ', '#', ' ', '#', '#', '#', '#', '#', ' ', '#', '#', '=', '#', '#', '#', '#', '#', '#', '#', '#', '*', ' ', ' ', ' ', ' ', ' ', ' ', '#', ' ', ' ', ' ', ' ', ' ', ' ', '*'},
+                {'*', '*', '*', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', ' ', '#', ' ', '#', ' ', '#', '#', '#', '#', '#', ' ', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '*', ' ', ' ', ' ', ' ', ' ', ' ', '#', ' ', ' ', ' ', ' ', ' ', ' ', '*'},
                 {'*', '#', '*', '*', '*', '*', '*', '*', ' ', '*', '*', '*', '*', '*', '*', '*', '#', '#', ' ', '*', '#', '#', '#', ' ', '#', ' ', '#', ' ', ' ', '#', ' ', '#', '#', ' ', '#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', ' ', '@', ' ', ' ', ' ', ' ', ' ', '#', ' ', ' ', '*'},
-                {'*', ' ', ' ', ' ', ' ', ' ', ' ', '*', ' ', '*', ' ', ' ', ' ', '#', ' ', '*', ' ', ' ', ' ', '*', ' ', ' ', '#', ' ', '#', ' ', '#', '#', ' ', '#', ' ', '#', ' ', ' ', '#', '#', '$', '#', '#', '#', '#', '#', '#', '#', '#', '*', ' ', '#', ' ', ' ', ' ', ' ', '#', ' ', ' ', ' ', ' ', ' ', ' ', '*'},
+                {'*', ' ', ' ', ' ', ' ', ' ', ' ', '*', ' ', '*', ' ', ' ', ' ', '#', ' ', '*', ' ', ' ', ' ', '*', ' ', ' ', '#', ' ', '#', ' ', '#', '#', ' ', '#', ' ', '#', ' ', ' ', '#', '#', ' ', '#', '#', '#', '#', '#', '#', '#', '#', '*', ' ', '#', ' ', ' ', ' ', ' ', '#', ' ', ' ', ' ', ' ', ' ', ' ', '*'},
                 {'*', ' ', '@', ' ', '#', '*', ' ', '*', ' ', ' ', ' ', '#', ' ', ' ', ' ', '*', ' ', ' ', ' ', '*', ' ', ' ', '#', ' ', '#', ' ', '#', ' ', ' ', '#', ' ', '#', ' ', '#', '#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '*', ' ', ' ', '#', ' ', ' ', ' ', ' ', '#', ' ', ' ', ' ', ' ', ' ', '*'},
                 {'*', '#', ' ', ' ', ' ', '*', ' ', '*', ' ', '*', '#', ' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', '*', ' ', ' ', '#', ' ', '#', ' ', '#', ' ', '#', '#', ' ', '#', ' ', ' ', '#', ' ', '#', '#', '#', '#', '#', '#', '#', '#', '#', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', 'D', '*', '*'},
                 {'*', ' ', ' ', ' ', ' ', '*', ' ', '*', ' ', '*', ' ', ' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', '*', ' ', ' ', '#', ' ', '#', ' ', '#', ' ', ' ', '#', ' ', '#', '#', ' ', '#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '*'},
@@ -546,14 +533,14 @@ bool printFase(int faseNumber)
                 {'*', '*', ' ', '#', ' ', '#', ' ', '*', ' ', ' ', 'O', ' ', '*', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#', ' ', '#', ' ', ' ', ' ', ' ', ' ', '#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '*', ' ', '#', ' ', '#', ' ', '#', ' ', '#', ' ', ' ', '#', ' ', ' ', '*'},
                 {'*', '*', ' ', ' ', ' ', '#', ' ', '*', ' ', ' ', ' ', ' ', '*', '#', '#', '#', '#', '#', ' ', '#', ' ', '#', ' ', '#', ' ', ' ', ' ', ' ', '#', '#', '#', '#', '#', ' ', '#', '#', ' ', '#', '#', '#', '#', '#', '#', '#', '#', '*', ' ', '#', ' ', '#', ' ', '#', ' ', '#', '#', 'D', '#', '#', '#', '*'},
                 {'*', '*', ' ', ' ', ' ', '@', ' ', '*', ' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', ' ', ' ', ' ', '#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#', ' ', ' ', ' ', ' ', ' ', '#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '*', ' ', '#', ' ', '#', ' ', '#', ' ', '#', ' ', ' ', ' ', ' ', ' ', '*'},
-                {'*', '*', '#', ' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', ' ', '*', '#', '#', '#', '#', '#', ' ', '#', '#', ' ', ' ', ' ', '#', ' ', '#', ' ', '#', ' ', '#', '#', '#', '#', '#', '=', '#', '#', '#', '#', '#', '#', '#', '#', '#', '*', ' ', '#', ' ', '#', ' ', '#', ' ', '#', ' ', ' ', ' ', ' ', ' ', '*'},
+                {'*', '*', '#', ' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', ' ', '*', '#', '#', '#', '#', '#', ' ', '#', '#', ' ', ' ', ' ', '#', ' ', '#', ' ', '#', ' ', '#', '#', '#', '#', '#', ' ', '#', '#', '#', '#', '#', '#', '#', '#', '#', '*', ' ', '#', ' ', '#', ' ', '#', ' ', '#', ' ', ' ', ' ', ' ', ' ', '*'},
                 {'*', '*', '*', '*', '*', '*', '*', '*', '*', ' ', ' ', ' ', '*', ' ', ' ', ' ', ' ', ' ', ' ', '#', '@', ' ', '#', ' ', ' ', ' ', ' ', ' ', '#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '*', ' ', ' ', ' ', '#', ' ', ' ', ' ', '#', ' ', ' ', ' ', '|', ' ', '*'},
                 {'*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*'},
         };
-        px = 1, py =1;
+        px = 1, py = 1;
         int fasePart = 1;
         int mx = 12, my = 13, x, y;
-        int mx2 = 31, my2 = 1, mx3 = 31, my3 = 46, mx4 = 39, my4 = 36;
+        int mx2 = 31, my2 = 1, mx3 = 31, my3 = 46;
         a[px][py] = '&';
         a[mx2][my2] = 'K';
 
@@ -561,24 +548,23 @@ bool printFase(int faseNumber)
         {
 
             system("cls");
-
             if (fasePart == 1)
             {
                 for (y = 0; y < 30; y++)
                 {
+                    printf("\t\t\t");
                     for (x = 0; x < 60; x++)
                     {
                         printf(" %c ", a[y][x]);
                     }
                     printf("\n\n");
-				
-                
                 }
             }
             if (fasePart == 2)
             {
                 for (y = 29; y < 60; y++)
                 {
+                    printf("\t\t\t");
                     for (x = 0; x < 60; x++)
                     {
                         printf(" %c ", a[y][x]);
@@ -719,7 +705,7 @@ bool printFase(int faseNumber)
                             py = 48;
                             a[32][42] = portal;
                         }
-                        //ButÃƒÂµes
+                        //ButÃµes
                     } else if (saveChar == button) {
                         if (a[px][py] == a[19][11]) {
                             a[14][6] = ' ';
@@ -769,8 +755,7 @@ bool printFase(int faseNumber)
                 px == mx2 && py + 1 == my2 || px + 1 == mx2 && py == my2|| px == mx2 && py  == my2 ||
                 px == mx2 && py  == my2 || px - 1 == mx3 && py == my3 || px == mx3 && py - 1 == my3 ||
                 px == mx3 && py + 1 == my3 || px + 1 == mx3 && py == my3 || px == mx2 && py  == my3 ||
-                px == mx3 && py  == my3 || px - 1 == mx4 && py == my4 || px == mx4 && py - 1 == my4 || px == mx4 && py + 1 == my4 ||
-                px + 1 == mx4 && py == my4 )
+                px == mx3 && py  == my3)
             {
                 life = loss(life);
                 if (life <= 0)
@@ -912,46 +897,7 @@ bool printFase(int faseNumber)
                 levelIsFinished = true;
                 return true;
             }
-            
-            monsterMove = monsterMovement();
-            if (monsterMove == 1)
-            {
-                if (a[mx4 - 1][my4] == ' ')
-                {
-                    a[mx4][my4] = ' ';
-                    mx4--;
-                }
-            }
-            if (monsterMove == 2)
-            {
-                if (a[mx4][my4 - 1] == ' ')
-                {
-                    a[mx4][my4] = ' ';
-                    my4--;
-                }
-            }
-            if (monsterMove == 3)
-            {
-                if (a[mx4][my4 + 1] == ' ')
-                {
-                    a[mx4][my4] = ' ';
-                    my4++;
-                }
-            }
-            if (monsterMove == 4)
-            {
-                if (a[mx4 + 1][my4] == ' ')
-                {
-                    a[mx4][my4] = ' ';
-                    mx4++;
-                }
-            }
 
-            if (a[px][py] == a[58][57]) {
-                levelIsFinished = true;
-                return true;
-            }
-			a[mx4][my4] = '$';
             a[mx][my] = '$';
             a[px][py] = '&';
             a[mx2][my2] = 'K';
@@ -965,8 +911,8 @@ void tutorial()
     system("cls");
     printf("O jogo eh do estilo aventura/puzzle onde o objetivo eh o jogador conseguir passar de tres fases.\nEm cada fase o jogador deve se movimentar para pegar uma chave para abrir a porta fechada.\n\nO jogador possui os seguintes comandos:\n");
     printf("\nW: O jogador movimenta uma unidade para cima\nA: O jogador movimenta uma unidade para esquerda\nS: O jogador movimenta uma unidade para baixo\nD: O jogador movimenta uma unidade para direita\nI: O jogador interage com o objeto que esta em cima.\n\n");
-     printf("----------------------------------------------------------------------\n");
-	system("pause");
+    printf("----------------------------------------------------------------------\n");
+    system("pause");
     system("cls");
     printf("O jogo possui os seguintes elementos nas fases:\n\n");
     printf("&: Simbolo que representa o jogador.\n*: Simbolo que representa uma parede, o jogador ao se movimentar nao pode passar pela parede.\n@: Simbolo que representa a chave para abrir a porta para finalizar a fase, a porta abre no momento que o jogador interage com a chave.\nD: Simbolo que representa a porta fechada.\n");
@@ -983,30 +929,29 @@ void tutorial()
 
 int main()
 {
-    int choice, restartGame;
+    int choice, restartGame = 1;
     bool playerPassed;
-    
-    while (choice != 3)
+    sound();
+    do
     {
         setlocale(LC_ALL, "Portuguese");
-        system("cls");          
-        slow_print("\n\n\n\t\t\t\t\t\tBem vindo ao DUNGEON CRAWLER!\n\n", 25);
-        printf("\t\t\t\t\t\t------------------------------");
-        printf("\n\t\t\t\t\t\tEscolha uma das opcoes abaixo:\n");
-        printf("\n\t\t\t\t\t\t[1] << Iniciar o jogo >>\n\t\t\t\t\t\t[2] << Tutorial >>\n\t\t\t\t\t\t[3] << Sair >>\n");
-        printf("\t\t\t\t\t\t------------------------------");
-        printf("\n\t\t\t\t\t\t--> ");
-    	sound();
+        system("cls");
+        slow_print("\n\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t Bem vindo ao DUNGEON CRAWLER!\n\n", 25);
+        printf("\t\t\t\t\t\t\t\t\t\t\t\t\t------------------------------");
+        printf("\n\t\t\t\t\t\t\t\t\t\t\t\t\tEscolha uma das opcoes abaixo:\n");
+        printf("\n\t\t\t\t\t\t\t\t\t\t\t\t\t   [1] << Iniciar o jogo >>\n\t\t\t\t\t\t\t\t\t\t\t\t\t   [2] << Tutorial >>\n\t\t\t\t\t\t\t\t\t\t\t\t\t   [3] << Sair >>\n");
+        printf("\t\t\t\t\t\t\t\t\t\t\t\t\t------------------------------");
+        printf("\n\t\t\t\t\t\t\t\t\t\t\t\t\t--> ");
+        sound();
         scanf("%d", &choice);
         system("cls");
 
         switch (choice)
         {
             case 1:
-            	soundSelect();
                 playerPassed = printFase(1);
                 if (!playerPassed)
-                {                    // se a variavel playerPassed for falsa, significa q o player morreu na fase
+                { // se a variavel playerPassed for falsa, significa q o player morreu na fase
                     break;
                 }
                 playerPassed = printFase(2);
@@ -1020,29 +965,27 @@ int main()
                     break;
                 }
                 system("cls");
-                printf("Parabens voce completou o jogo!\n se quiser voltar para o menu digite 1, se nao quiser digite outro numero!:");
+                printf("Parabéns você completou o jogo!\n se quiser voltar para o menu digite 1, se não quiser digite outro numero!:");
                 scanf("%d", &restartGame);
                 break;
             case 2:
-            	soundSelect();
                 tutorial();
                 break;
             case 3:
-            	soundSelect();
                 printf("Saindo...");
                 break;
 
             default:
-            	soundDefault();
-                printf("Opcao invalida! Por favor, tente novamente.\n\n");
+                printf("Opção invalida! Por favor, tente novamente.\n");
                 system("pause");
-		    }
-
                 system("cls");
-                if(restartGame != 1){
-                	break;
-				}
-	    }
-	    
-	    return 0;
-    }
+                break;
+        }
+        if(restartGame != 1){
+            break;
+        }
+
+    }while (choice != 3);
+
+    return 0;
+}
